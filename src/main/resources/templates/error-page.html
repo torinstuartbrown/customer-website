@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <head>
+        <title>Customer Website</title>
+        <div th:replace="fragments :: header"/>
+    </head>
+<body>
+<div th:replace="fragments :: navigation"/>
+<img th:src="@{/images/blogpic-dont-do.jpg}"
+     width="400"
+     height="200">
+
+
+<h1>You did something you shouldn't have! Let's go Home:</h1>
+<a th:href="@{'/'}">Home</a> <br />
+
+
+
+</body>
+</html>

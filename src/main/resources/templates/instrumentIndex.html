@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Instrument Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Instrument List</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+
+            <th>Instrument ID</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>Customer ID</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="instrument : ${instrumentList}">
+            <td th:text="${instrument.id}">Instrument Id</td>
+            <td th:text="${instrument.name}">Name</td>
+            <td th:text="${instrument.brand}">Brand</td>
+            <td th:text="${instrument.price}">Price</td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+    <a th:href="@{instruments/new}">Add New Instrument</a>
+
+</div>
+
+
+
+
+</body>
+</html>
+

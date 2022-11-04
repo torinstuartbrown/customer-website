@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <head>
+        <title>Customer Website</title>
+        <div th:replace="fragments :: header"/>
+    </head>
+<body>
+<div th:replace="fragments :: navigation"/>
+<img th:src="@{/images/clairnet.jpg}"
+    width="400"
+    height="200">
+
+<h1>Welcome!</h1>
+<h2>
+    <div>
+        <a th:href="@{'/register'}">Register New Account</a> <br />
+        <a th:href="@{'/login'}"> Login To An Existing Account</a> <br />
+        <a th:href="@{'/logout'}"> Logout</a>
+    </div>
+
+</h2>
+<h1>Navigate to: </h1>
+<a th:href="@{'/employeePortal'}">Employee Portal</a> <br />
+<a th:href="@{'/myrental'}">My Rental</a> <br />
+
+<!--pull session user's email-->
+<!--<a th:href="@{'/edit/user'}">My Account</a>-->
+
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <head>
+        <title>Customer Website</title>
+        <div th:replace="fragments :: header"/>
+    </head>
+<body>
+<div th:replace="fragments :: navigation"/>
+<div align="center">
+    <h1>Customer List</h1>
+
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <!--
+            You are creating a table here, where the header will be the Customer
+            details and then the other rows will be filled by the data that
+            you send back in the Model object.
+            -->
+            <th>Customer ID</th>
+            <th>Full Name</th>
+            <th>Email Address</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Assigned Instrument</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <!--
+         Now that your headers are defined, you can reference the key-value
+         pair "customerList" that you added to the model above.
+         Thymeleaf will loop over each customer and extract the attributes to match
+         your column names.
+        -->
+        <tbody>
+        <tr th:each="customer : ${customerList}">
+            <td th:text="${customer.id}">Customer ID</td>
+            <td th:text="${customer.fullName}">Full Name</td>
+            <td th:text="${customer.emailAddress}">Email Address</td>
+            <td th:text="${customer.age}">Age</td>
+            <td th:text="${customer.address}">Address</td>
+            <td th:text="${customer?.instrument?.id}">Assigned Instrument ID</td>
+
+            <td><a th:href="@{'/edit/' + ${customer.id}}">Edit or Assign</a>
+                <a th:href="@{'/delete/' + ${customer.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+    <a th:href="@{/new}">Add New Customer</a>
+
+</div>
+<br/><br/>
+
+<body>
+<div align="center">
+    <h1>Instrument List</h1>
+
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+
+            <th>Instrument ID</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>Customer ID</th>
+            <th>Actions</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="instrument : ${instrumentList}">
+            <td th:text="${instrument.id}">Instrument Id</td>
+            <td th:text="${instrument.name}">Name</td>
+            <td th:text="${instrument.brand}">Brand</td>
+            <td th:text="${instrument.price}">Price</td>
+            <td th:text="${instrument?.customer?.id}">Assigned</td>
+
+            <td><a th:href="@{'instruments/edit/' + ${instrument.id}}">Edit</a>
+                <a th:href="@{'instruments/delete/' + ${instrument.id}}">Delete</a>
+
+            </td>
+            </select>
+            </td>
+        </tr>
+
+        </tbody>
+
+    </table>
+    <a th:href="@{instruments/new}">Add New Instrument</a>
+
+    <span th:if="${!#strings.isEmpty(error)}"
+          th:text="${error}">
+
+    </span>
+
+</div>
+
+

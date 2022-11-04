@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Edit Instrument</title>
+</head>
+<body>
+<div align="center">
+    <h1>Edit Instrument</h1>
+    <br />
+
+    <form action="#" th:action="@{'/instruments/update/' + ${instrument.id}}" th:object="${instrument}"
+          method="post">
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Instrument ID:</td>
+                <td><input type="text" th:field="*{id}" readonly/></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" th:field="*{Name}" required/></td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td><input type="text" th:field="*{Brand}" required/></td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td><input type="number" th:field="*{price}" price/></td>
+            </tr>
+            <tr>
+                <td>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Save</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

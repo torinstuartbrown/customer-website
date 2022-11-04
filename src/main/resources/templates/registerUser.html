@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<body>
+<h1>Register New User</h1>
+<form action="#" th:action="@{/register}" th:object="${user}" method="post">
+    <!--
+    These input fields are used to collect the information
+    required to complete the referenced Customer object.
+    -->
+    <table border="0" cellpadding="10">
+        <tr>
+            <td>First Name:</td>
+            <td><input type="text" th:field="*{firstName}" required/></td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td><input type="text" th:field="*{lastName}" required/></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="text" th:field="*{password}" required/></td>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td><input type="email" th:field="*{email}" required/></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">Save</button> </td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>
